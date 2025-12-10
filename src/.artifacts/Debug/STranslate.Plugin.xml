@@ -1,0 +1,1753 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>STranslate.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:STranslate.Plugin.I18nPair">
+            <summary>
+            国际化键值对
+            </summary>
+            <param name="code"></param>
+            <param name="display"></param>
+        </member>
+        <member name="M:STranslate.Plugin.I18nPair.#ctor(System.String,System.String)">
+            <summary>
+            国际化键值对
+            </summary>
+            <param name="code"></param>
+            <param name="display"></param>
+        </member>
+        <member name="P:STranslate.Plugin.I18nPair.LanguageCode">
+            <summary>
+            E.g. en or zh-cn
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.I18nPair.Display">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.IAudioPlayer">
+            <summary>
+            音频播放器接口
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IAudioPlayer.PlayAsync(System.Byte[],System.Threading.CancellationToken)">
+            <summary>
+            播放音频
+            </summary>
+            <param name="audioData"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IAudioPlayer.PlayAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            播放音频
+            </summary>
+            <param name="audioUrl"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.Options">
+            <summary>
+            Http请求选项
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Options.Headers">
+            <summary>
+            请求头
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Options.QueryParams">
+            <summary>
+            查询参数
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Options.Timeout">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Options.ContentType">
+            <summary>
+            内容类型
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.DownloadProgress">
+            <summary>
+            下载进度
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DownloadProgress.TotalBytes">
+            <summary>
+            总字节数
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DownloadProgress.DownloadedBytes">
+            <summary>
+            已下载字节数
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DownloadProgress.Percentage">
+            <summary>
+            下载百分比
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DownloadProgress.ElapsedTime">
+            <summary>
+            已用时间
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DownloadProgress.Speed">
+            <summary>
+            下载速度
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.IHttpService">
+            <summary>
+            Http服务接口
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get请求
+            </summary>
+            <param name="url"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsync(System.String,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Get请求
+            </summary>
+            <param name="url"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsync``1(System.String,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Get请求
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsBytesAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get请求返回字节数组
+            </summary>
+            <param name="url"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsBytesAsync(System.String,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Get请求返回字节数组
+            </summary>
+            <param name="url"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsStreamAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get请求返回流
+            </summary>
+            <param name="url"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsStreamAsync(System.String,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Get请求返回流
+            </summary>
+            <param name="url"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.PostAsync(System.String,System.Object,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Post请求
+            </summary>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.PostAsync``1(System.String,System.Object,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Post请求
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.PostAsBytesAsync(System.String,System.Object,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Post请求返回字节数组
+            </summary>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.PostFormAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String},STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Post表单请求
+            </summary>
+            <param name="url"></param>
+            <param name="formData"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.StreamPostAsync(System.String,System.Object,System.Action{System.String},STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            流式Post请求
+            </summary>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="onDataReceived"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.DownloadFileAsync(System.String,System.String,System.String,STranslate.Plugin.Options,System.IProgress{STranslate.Plugin.DownloadProgress},System.Threading.CancellationToken)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="url"></param>
+            <param name="savePath"></param>
+            <param name="fileName"></param>
+            <param name="options"></param>
+            <param name="progress"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.DownloadFileAsync(System.String,System.Object,System.String,System.String,STranslate.Plugin.Options,System.IProgress{STranslate.Plugin.DownloadProgress},System.Threading.CancellationToken)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="savePath"></param>
+            <param name="fileName"></param>
+            <param name="options"></param>
+            <param name="progress"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsync(System.String,System.String,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+                 * 
+                配置分离：不同服务不同配置（BaseAddress、Timeout、Headers等）
+                连接池隔离：避免不同服务之间的连接竞争
+                策略分离：不同的重试、超时、熔断策略
+                中间件分离：不同的认证、加密、日志处理
+                资源管理：针对不同服务的连接数、性能调优
+                监控分离：可以分别监控不同服务的调用情况
+            <summary>
+            Get请求
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsBytesAsync(System.String,System.String,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Get请求返回字节数组
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetAsStreamAsync(System.String,System.String,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Get请求返回流
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.PostAsync(System.String,System.String,System.Object,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Post请求
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.PostAsBytesAsync(System.String,System.String,System.Object,STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Post请求返回字节数组
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.PostFormAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            Post表单请求
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="formData"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.StreamPostAsync(System.String,System.String,System.Object,System.Action{System.String},STranslate.Plugin.Options,System.Threading.CancellationToken)">
+            <summary>
+            流式Post请求
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="onDataReceived"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.DownloadFileAsync(System.String,System.String,System.String,System.String,STranslate.Plugin.Options,System.IProgress{STranslate.Plugin.DownloadProgress},System.Threading.CancellationToken)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="savePath"></param>
+            <param name="fileName"></param>
+            <param name="options"></param>
+            <param name="progress"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.DownloadFileAsync(System.String,System.String,System.Object,System.String,System.String,STranslate.Plugin.Options,System.IProgress{STranslate.Plugin.DownloadProgress},System.Threading.CancellationToken)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName"></param>
+            <param name="url"></param>
+            <param name="content"></param>
+            <param name="savePath"></param>
+            <param name="fileName"></param>
+            <param name="options"></param>
+            <param name="progress"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.TestProxyAsync(System.Threading.CancellationToken)">
+            <summary>
+            测试代理连接
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IHttpService.GetCurrentIpAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取当前IP地址
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.ILlm">
+            <summary>
+            大语言模型接口
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.ILlm.Prompts">
+            <summary>
+            Prompts
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.ILlm.SelectedPrompt">
+            <summary>
+            选择的Prompt
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ILlm.SelectPrompt(STranslate.Plugin.Prompt)">
+            <summary>
+            选择Prompt
+            </summary>
+            <param name="prompt"></param>
+        </member>
+        <member name="T:STranslate.Plugin.INavigation">
+            <summary>
+                用于处理切换导航 PasswordBox 内容丢失的问题
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.INavigation.IsNavigated">
+            <summary>
+            是否导航
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.INotification">
+            <summary>
+            通知接口
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.INotification.Show(System.String,System.String,System.String)">
+            <summary>
+            显示
+            </summary>
+            <param name="title"></param>
+            <param name="subTitle"></param>
+            <param name="iconPath"></param>
+        </member>
+        <member name="M:STranslate.Plugin.INotification.ShowWithButton(System.String,System.String,System.Action,System.String,System.String)">
+            <summary>
+            显示带按钮的通知
+            </summary>
+            <param name="title"></param>
+            <param name="buttonText"></param>
+            <param name="buttonAction"></param>
+            <param name="subTitle"></param>
+            <param name="iconPath"></param>
+        </member>
+        <member name="T:STranslate.Plugin.IOcrPlugin">
+            <summary>
+            OCR 插件接口，定义了支持的语言和识别方法。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IOcrPlugin.SupportedLanguages">
+            <summary>
+            获取插件支持的语言列表。
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IOcrPlugin.RecognizeAsync(STranslate.Plugin.OcrRequest,System.Threading.CancellationToken)">
+            <summary>
+            异步识别图片中的文本。
+            </summary>
+            <param name="request">OCR 请求参数。</param>
+            <param name="cancellationToken">取消令牌。</param>
+            <returns>识别结果。</returns>
+        </member>
+        <member name="T:STranslate.Plugin.OcrRequest">
+            <summary>
+            OCR 请求参数，包含待识别图片数据和目标语言。
+            </summary>
+            <param name="ImageData">图片数据</param>
+            <param name="Language">语言</param>
+        </member>
+        <member name="M:STranslate.Plugin.OcrRequest.#ctor(System.Byte[],STranslate.Plugin.LangEnum)">
+            <summary>
+            OCR 请求参数，包含待识别图片数据和目标语言。
+            </summary>
+            <param name="ImageData">图片数据</param>
+            <param name="Language">语言</param>
+        </member>
+        <member name="P:STranslate.Plugin.OcrRequest.ImageData">
+            <summary>图片数据</summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrRequest.Language">
+            <summary>语言</summary>
+        </member>
+        <member name="T:STranslate.Plugin.OcrResult">
+            <summary>
+            OCR 识别结果，包含识别出的文本、内容列表、语言、耗时、成功标志及错误信息。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrResult.Text">
+            <summary>
+            纯文本结果
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrResult.OcrContents">
+            <summary>
+            识别出的内容列表。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrResult.Language">
+            <summary>
+            识别出的语言。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrResult.Duration">
+            <summary>
+            识别耗时。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrResult.IsSuccess">
+            <summary>
+            是否识别成功。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrResult.ErrorMessage">
+            <summary>
+            错误信息（如有）。
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.OcrResult.Fail(System.String)">
+            <summary>
+            失败
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.OcrContent">
+            <summary>
+            OCR 内容，包含识别出的文本及其对应的包围盒坐标点。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrContent.Text">
+            <summary>
+            识别出的文本内容。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.OcrContent.BoxPoints">
+            <summary>
+            文本对应的包围盒坐标点集合。
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.BoxPoint">
+            <summary>
+            表示一个二维坐标点，用于描述 OCR 识别内容的包围盒顶点。
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.BoxPoint.#ctor(System.Single,System.Single)">
+            <summary>
+            表示一个二维坐标点，用于描述 OCR 识别内容的包围盒顶点。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.BoxPoint.X">
+            <summary>
+            X 坐标值。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.BoxPoint.Y">
+            <summary>
+            Y 坐标值。
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.IPlugin">
+            <summary>
+                通用插件接口（内部使用）
+                <para>⚠️ 请不要直接实现本接口</para>
+                <para>🤟 <see cref="T:STranslate.Plugin.ITranslatePlugin"/>、<see cref="T:STranslate.Plugin.ITtsPlugin"/>、<see cref="T:STranslate.Plugin.IOcrPlugin"/></para>
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IPlugin.Init(STranslate.Plugin.IPluginContext)">
+            <summary>
+                初始化插件
+            </summary>
+            <param name="context">插件上下文</param>
+        </member>
+        <member name="M:STranslate.Plugin.IPlugin.GetSettingUI">
+            <summary>
+                创建插件配置面板
+            </summary>
+            <returns>配置面板的 UserControl</returns>
+        </member>
+        <member name="T:STranslate.Plugin.IPluginContext">
+            <summary>
+            提供插件设置存储的加载和保存功能的接口。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IPluginContext.MetaData">
+            <summary>
+            插件元数据
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IPluginContext.Logger">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IPluginContext.GetTranslation(System.String)">
+            <summary>
+            获取翻译
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IPluginContext.HttpService">
+            <summary>
+            Http服务
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IPluginContext.AudioPlayer">
+            <summary>
+            音频播放
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IPluginContext.Snackbar">
+            <summary>
+            消息弹窗
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IPluginContext.Notification">
+            <summary>
+            通知
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IPluginContext.GetPromptEditWindow(System.Collections.ObjectModel.ObservableCollection{STranslate.Plugin.Prompt},System.Collections.Generic.List{System.String})">
+            <summary>
+            获取Prompt编辑窗口
+            </summary>
+            <param name="prompts"></param>
+            <param name="roles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.IPluginContext.LoadSettingStorage``1">
+            <summary>
+            加载插件的设置存储。
+            </summary>
+            <typeparam name="T">设置存储的类型。</typeparam>
+            <returns>设置存储对象。</returns>
+        </member>
+        <member name="M:STranslate.Plugin.IPluginContext.SaveSettingStorage``1">
+            <summary>
+            保存插件的设置存储。
+            </summary>
+            <typeparam name="T">设置存储的类型。</typeparam>
+        </member>
+        <member name="T:STranslate.Plugin.ISavable">
+            <summary>
+            表示可保存的插件接口。
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ISavable.Save">
+            <summary>
+            保存插件的状态或数据。
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ISavable.Delete">
+            <summary>
+            删除插件的状态或数据
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.ISnackbar">
+            <summary>
+            消息弹窗接口
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ISnackbar.Show(System.String,STranslate.Plugin.Severity,System.Int32,System.String,System.Action)">
+            <summary>
+            显示
+            </summary>
+            <param name="message"></param>
+            <param name="severity"></param>
+            <param name="durationMs"></param>
+            <param name="actionText"></param>
+            <param name="actionCallback"></param>
+        </member>
+        <member name="M:STranslate.Plugin.ISnackbar.ShowSuccess(System.String,System.Int32)">
+            <summary>
+            显示成功
+            </summary>
+            <param name="message"></param>
+            <param name="durationMs"></param>
+        </member>
+        <member name="M:STranslate.Plugin.ISnackbar.ShowError(System.String,System.Int32)">
+            <summary>
+            显示错误
+            </summary>
+            <param name="message"></param>
+            <param name="durationMs"></param>
+        </member>
+        <member name="M:STranslate.Plugin.ISnackbar.ShowWarning(System.String,System.Int32)">
+            <summary>
+            显示警告
+            </summary>
+            <param name="message"></param>
+            <param name="durationMs"></param>
+        </member>
+        <member name="M:STranslate.Plugin.ISnackbar.ShowInfo(System.String,System.Int32)">
+            <summary>
+            显示信息
+            </summary>
+            <param name="message"></param>
+            <param name="durationMs"></param>
+        </member>
+        <member name="T:STranslate.Plugin.Severity">
+            <summary>
+            严重程度
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.Severity.Informational">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.Severity.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.Severity.Warning">
+            <summary>
+            警告
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.Severity.Error">
+            <summary>
+            错误
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.DictionaryPluginBase">
+            <summary>
+            字典插件基类
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryPluginBase.DictionaryResult">
+            <summary>
+            字典查询结果
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.DictionaryPluginBase.GetSettingUI">
+            <summary>
+            获取设置UI
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.DictionaryPluginBase.Init(STranslate.Plugin.IPluginContext)">
+            <summary>
+            初始化
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:STranslate.Plugin.DictionaryPluginBase.TranslateAsync(System.String,STranslate.Plugin.DictionaryResult,System.Threading.CancellationToken)">
+            <summary>
+            翻译
+            </summary>
+            <param name="content"></param>
+            <param name="result"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.DictionaryPluginBase.Dispose">
+            <summary>
+            释放
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.TranslatePluginBase">
+            <summary>
+            翻译插件基类
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.TranslatePluginBase.TransResult">
+            <summary>
+            翻译结果
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.TranslatePluginBase.TransBackResult">
+            <summary>
+            回译结果
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.TranslatePluginBase.GetSettingUI">
+            <summary>
+            获取设置UI
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.TranslatePluginBase.GetSourceLanguage(STranslate.Plugin.LangEnum)">
+            <summary>
+            获取源语言
+            </summary>
+            <param name="langEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.TranslatePluginBase.GetTargetLanguage(STranslate.Plugin.LangEnum)">
+            <summary>
+            获取目标语言
+            </summary>
+            <param name="langEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.TranslatePluginBase.Init(STranslate.Plugin.IPluginContext)">
+            <summary>
+            初始化
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:STranslate.Plugin.TranslatePluginBase.TranslateAsync(STranslate.Plugin.TranslateRequest,STranslate.Plugin.TranslateResult,System.Threading.CancellationToken)">
+            <summary>
+            翻译
+            </summary>
+            <param name="request"></param>
+            <param name="result"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.TranslatePluginBase.Dispose">
+            <summary>
+            释放
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.LlmTranslatePluginBase">
+            <summary>
+            大语言模型翻译插件基类
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.LlmTranslatePluginBase.Prompts">
+            <summary>
+            Prompts
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.LlmTranslatePluginBase.SelectedPrompt">
+            <summary>
+            选择的Prompt
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.LlmTranslatePluginBase.SelectPrompt(STranslate.Plugin.Prompt)">
+            <summary>
+            选择Prompt
+            </summary>
+            <param name="prompt"></param>
+        </member>
+        <member name="T:STranslate.Plugin.ITranslatePlugin">
+            <summary>
+            定义翻译插件的接口，包含插件初始化、语言支持、配置校验和翻译功能。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.ITranslatePlugin.TransResult">
+            <summary>
+            翻译结果
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.ITranslatePlugin.TransBackResult">
+            <summary>
+            回译结果
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ITranslatePlugin.Reset">
+            <summary>
+            重置翻译结果
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ITranslatePlugin.ResetBack">
+            <summary>
+            重置回译结果
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ITranslatePlugin.GetSourceLanguage(STranslate.Plugin.LangEnum)">
+            <summary>
+            获取源语言
+            </summary>
+            <param name="langEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.ITranslatePlugin.GetTargetLanguage(STranslate.Plugin.LangEnum)">
+            <summary>
+            获取目标语言
+            </summary>
+            <param name="langEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.ITranslatePlugin.TranslateAsync(STranslate.Plugin.TranslateRequest,STranslate.Plugin.TranslateResult,System.Threading.CancellationToken)">
+            <summary>
+            异步执行翻译操作。
+            </summary>
+            <param name="request">翻译请求参数。</param>
+            <param name="result">翻译结果实例。</param>
+            <param name="cancellationToken">取消令牌。</param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.TranslateRequest">
+            <summary>
+            表示翻译请求的参数，包括待翻译文本、源语言和目标语言。
+            </summary>
+            <param name="Text">文本</param>
+            <param name="SourceLang">源语言</param>
+            <param name="TargetLang">目标语言</param>
+        </member>
+        <member name="M:STranslate.Plugin.TranslateRequest.#ctor(System.String,STranslate.Plugin.LangEnum,STranslate.Plugin.LangEnum)">
+            <summary>
+            表示翻译请求的参数，包括待翻译文本、源语言和目标语言。
+            </summary>
+            <param name="Text">文本</param>
+            <param name="SourceLang">源语言</param>
+            <param name="TargetLang">目标语言</param>
+        </member>
+        <member name="P:STranslate.Plugin.TranslateRequest.Text">
+            <summary>文本</summary>
+        </member>
+        <member name="P:STranslate.Plugin.TranslateRequest.SourceLang">
+            <summary>源语言</summary>
+        </member>
+        <member name="P:STranslate.Plugin.TranslateRequest.TargetLang">
+            <summary>目标语言</summary>
+        </member>
+        <member name="T:STranslate.Plugin.TranslateResult">
+            <summary>
+            表示翻译结果，包括翻译后的文本、源语言、目标语言、耗时、是否成功及错误信息。
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="M:STranslate.Plugin.TranslateResult.Success(System.String)">
+            <summary>
+            成功
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:STranslate.Plugin.TranslateResult.Fail(System.String)">
+            <summary>
+            失败
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:STranslate.Plugin.TranslateResult.Update(STranslate.Plugin.TranslateResult)">
+            <summary>
+            更新结果
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="P:STranslate.Plugin.TranslateResult.IsSuccess">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.TranslateResult.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.TranslateResult.Duration">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.TranslateResult.IsProcessing">
+            <inheritdoc/>
+        </member>
+        <member name="T:STranslate.Plugin.IDictionaryPlugin">
+            <summary>
+            字典插件接口
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.IDictionaryPlugin.DictionaryResult">
+            <summary>
+            字典查询结果
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IDictionaryPlugin.Reset">
+            <summary>
+            重置
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IDictionaryPlugin.TranslateAsync(System.String,STranslate.Plugin.DictionaryResult,System.Threading.CancellationToken)">
+            <summary>
+            翻译
+            </summary>
+            <param name="content"></param>
+            <param name="result"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.DictionaryResult">
+            <summary>
+            字典查询结果
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="M:STranslate.Plugin.DictionaryResult.Update(STranslate.Plugin.DictionaryResult)">
+            <summary>
+            更新结果
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.ResultType">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.Symbols">
+            <summary>
+            音标
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.DictMeans">
+            <summary>
+            词典释义
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.Plurals">
+            <summary>
+            复数形式
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.PastTense">
+            <summary>
+            过去式
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.PastParticiple">
+            <summary>
+            过去分词
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.PresentParticiple">
+            <summary>
+            现在分词/动名词
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.ThirdPersonSingular">
+            <summary>
+            第三人称单数
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.Comparative">
+            <summary>
+            比较级
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.Superlative">
+            <summary>
+            最高级
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.Sentences">
+            <summary>
+            句子
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.Duration">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.DictionaryResult.IsProcessing">
+            <inheritdoc/>
+        </member>
+        <member name="T:STranslate.Plugin.DictionaryResultType">
+            <summary>
+            字典结果类型
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.DictionaryResultType.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.DictionaryResultType.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.DictionaryResultType.Error">
+            <summary>
+            错误
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.DictionaryResultType.NoResult">
+            <summary>
+            无结果
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.Symbol">
+            <summary>
+            音标
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.Symbol.Label">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.Symbol.Phonetic">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.Symbol.AudioUrl">
+            <inheritdoc/>
+        </member>
+        <member name="T:STranslate.Plugin.DictMean">
+            <summary>
+            词典释义
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.DictMean.PartOfSpeech">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.DictMean.Means">
+            <summary>
+            释义
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.ITtsPlugin">
+            <summary>
+            表示文本转语音（TTS）插件的接口，定义了支持的语言、合成语音和播放音频的功能。
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.ITtsPlugin.PlayAudioAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            异步播放音频数据。
+            </summary>
+            <param name="text">待合成文本。</param>
+            <param name="cancellationToken">取消令牌。</param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.IVocabularyPlugin">
+            <summary>
+            生词本插件接口
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.IVocabularyPlugin.SaveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            保存生词
+            </summary>
+            <param name="text"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.VocabularyResult">
+            <summary>
+            生词本结果
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.VocabularyResult.Duration">
+            <summary>
+            耗时
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.VocabularyResult.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.VocabularyResult.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.VocabularyResult.Fail(System.String)">
+            <summary>
+            失败
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.LangEnum">
+            <summary>
+            表示支持的语言枚举类型。
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Auto">
+            <summary>
+            自动选择语言
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.ChineseSimplified">
+            <summary>
+            中文（简体）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.ChineseTraditional">
+            <summary>
+            中文（繁體）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Cantonese">
+            <summary>
+            粤语（中文粤语）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.English">
+            <summary>
+            英语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Japanese">
+            <summary>
+            日语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Korean">
+            <summary>
+            韩语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.French">
+            <summary>
+            法语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Spanish">
+            <summary>
+            西班牙语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Russian">
+            <summary>
+            俄语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.German">
+            <summary>
+            德语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Italian">
+            <summary>
+            意大利语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Turkish">
+            <summary>
+            土耳其语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.PortuguesePortugal">
+            <summary>
+            葡萄牙语（葡萄牙）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.PortugueseBrazil">
+            <summary>
+            葡萄牙语（巴西）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Vietnamese">
+            <summary>
+            越南语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Indonesian">
+            <summary>
+            印度尼西亚语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Thai">
+            <summary>
+            泰语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Malay">
+            <summary>
+            马来语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Arabic">
+            <summary>
+            阿拉伯语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Hindi">
+            <summary>
+            印地语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.MongolianCyrillic">
+            <summary>
+            蒙古语（西里尔文）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.MongolianTraditional">
+            <summary>
+            蒙古语（传统文字）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Khmer">
+            <summary>
+            高棉语（柬埔寨语）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.NorwegianBokmal">
+            <summary>
+            挪威语（书面，Bokmål）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.NorwegianNynorsk">
+            <summary>
+            挪威语（新挪威语，Nynorsk）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Persian">
+            <summary>
+            波斯语（法尔西语）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Swedish">
+            <summary>
+            瑞典语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Polish">
+            <summary>
+            波兰语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Dutch">
+            <summary>
+            荷兰语
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.LangEnum.Ukrainian">
+            <summary>
+            乌克兰语
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.PasswordBoxAssistant">
+            <summary>
+                Databind the Password Property of a WPF PasswordBox
+                Source <see href="https://www.wpftutorial.net/PasswordBox.html" />
+                1. 处理 PasswordBox 无法绑定 Password 属性的问题
+                2. 处理导航时 PasswordBox 内容丢失的问题
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.PasswordBoxAssistant.PasswordProperty">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.PasswordBoxAssistant.AttachProperty">
+            <summary>
+            Attach
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.PasswordBoxAssistant.SetAttach(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            SetAttach
+            </summary>
+            <param name="dp"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:STranslate.Plugin.PasswordBoxAssistant.GetAttach(System.Windows.DependencyObject)">
+            <summary>
+            GetAttach
+            </summary>
+            <param name="dp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.PasswordBoxAssistant.GetPassword(System.Windows.DependencyObject)">
+            <summary>
+            GetPassword
+            </summary>
+            <param name="dp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.PasswordBoxAssistant.SetPassword(System.Windows.DependencyObject,System.String)">
+            <summary>
+            SetPassword
+            </summary>
+            <param name="dp"></param>
+            <param name="value"></param>
+        </member>
+        <member name="F:STranslate.Plugin.PasswordBoxAssistant._isNavigate">
+            <summary>
+                <see href="https://stackoverflow.com/a/31940993/18478256"/>
+                <see href="https://stackoverflow.com/questions/10783583/passwordbox-loses-its-content-on-navigation"/>
+                <see href="https://www.wpfsharp.com/2011/04/08/wpf-navigationservice-blanks-passwordbox-password-which-breaks-the-mvvm-passwordhelper/"/>
+            </summary>
+        </member>
+        <member name="T:STranslate.Plugin.PluginMetaData">
+            <summary>
+            表示插件的元数据，包括插件的标识、名称、作者、版本、描述、网站、执行文件路径、图标路径等信息。
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.PluginID">
+            <summary>
+            插件唯一标识符。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.Author">
+            <summary>
+            插件作者。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.Version">
+            <summary>
+            插件版本号。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.Website">
+            <summary>
+            插件官方网站。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.ExecuteFilePath">
+            <summary>
+            插件执行文件的完整路径。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.ExecuteFileName">
+            <summary>
+            插件执行文件名。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.AssemblyName">
+            <summary>
+            插件程序集名称。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.PluginType">
+            <summary>
+            插件类型（加载后设置）
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.PluginDirectory">
+            <summary>
+            插件源目录。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.IconPath">
+            <summary>
+            插件图标路径。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.IsPrePlugin">
+            <summary>
+            是否为预装插件
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.PluginMetaData.CreatePluginService">
+            <summary>
+            创建插件实例
+            </summary>
+            <returns>新的插件实例</returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.PluginSettingsDirectoryPath">
+            <summary>
+            插件设置目录路径（未验证），用于存储插件设置文件和数据文件。
+            插件删除时，用户可选择是否保留该目录。
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.PluginMetaData.PluginCacheDirectoryPath">
+            <summary>
+            插件缓存目录路径（未验证），用于存储缓存文件。
+            插件删除时，该目录会被删除。
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.PluginMetaData.ToString">
+            <summary>
+            将 <see cref="T:STranslate.Plugin.PluginMetaData"/> 转换为字符串，返回插件名称。
+            </summary>
+            <returns>插件名称字符串。</returns>
+        </member>
+        <member name="M:STranslate.Plugin.PluginMetaData.Clone">
+            <summary>
+            创建当前插件元数据实例的副本。
+            </summary>
+            <returns>当前插件元数据的副本。</returns>
+        </member>
+        <member name="T:STranslate.Plugin.Prompt">
+            <summary>
+            Prompt
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.Prompt.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.Prompt.Items">
+            <summary>
+            Items
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Prompt.IsEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:STranslate.Plugin.Prompt.#ctor">
+            <summary>
+            Prompt
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.Prompt.#ctor(System.String,System.Collections.Generic.IEnumerable{STranslate.Plugin.PromptItem},System.Boolean)">
+            <summary>
+            Prompt
+            </summary>
+            <param name="name"></param>
+            <param name="prompts"></param>
+            <param name="isEnabled"></param>
+        </member>
+        <member name="M:STranslate.Plugin.Prompt.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.PromptItem">
+            <summary>
+            PromptItem
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.PromptItem.Role">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.PromptItem.Content">
+            <inheritdoc/>
+        </member>
+        <member name="M:STranslate.Plugin.PromptItem.#ctor">
+            <summary>
+            PromptItem
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.PromptItem.#ctor(System.String)">
+            <summary>
+            PromptItem
+            </summary>
+            <param name="role"></param>
+        </member>
+        <member name="M:STranslate.Plugin.PromptItem.#ctor(System.String,System.String)">
+            <summary>
+            PromptItem
+            </summary>
+            <param name="role"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:STranslate.Plugin.PromptItem.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:STranslate.Plugin.Service">
+            <summary>
+            服务实例 - 插件的运行时实例，包含具体的配置和状态
+            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.Service.ServiceID">
+            <summary>
+            服务实例唯一标识符
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Service.MetaData">
+            <summary>
+            插件元数据引用
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Service.Plugin">
+            <summary>
+            插件实例
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Service.Context">
+            <summary>
+            插件上下文
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Service.DisplayName">
+            <summary>
+            显示名称（可自定义）
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Service.IsInitialized">
+            <summary>
+            是否已初始化
+            </summary>
+        </member>
+        <member name="P:STranslate.Plugin.Service.IsEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.Service.Options">
+            <inheritdoc/>
+        </member>
+        <member name="M:STranslate.Plugin.Service.OnOptionsPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            将来自Options的属性变更通知冒泡到Service的订阅者
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:STranslate.Plugin.Service.Initialize">
+            <summary>
+            初始化服务实例
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.Service.ToString">
+            <summary>
+            字符串转换
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.Service.Equals(System.Object)">
+            <summary>
+            为了兼容现有代码，保持与 PluginPair 相同的 Equals 和 GetHashCode 逻辑
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.Service.GetHashCode">
+            <summary>
+            获取哈希值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:STranslate.Plugin.Service.Dispose">
+            <summary>
+            释放
+            </summary>
+        </member>
+        <member name="M:STranslate.Plugin.Service.OnOptionsChanged(STranslate.Plugin.TranslationOptions,STranslate.Plugin.TranslationOptions)">
+            <summary>Executes the logic for when <see cref="P:STranslate.Plugin.Service.Options"/> just changed.</summary>
+            <param name="oldValue">The previous property value that was replaced.</param>
+            <param name="newValue">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:STranslate.Plugin.Service.Options"/> is changed.</remarks>
+        </member>
+        <member name="T:STranslate.Plugin.TranslationOptions">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.TranslationOptions.ExecMode">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.TranslationOptions.TemporaryDisplay">
+            <inheritdoc/>
+        </member>
+        <member name="P:STranslate.Plugin.TranslationOptions.AutoBackTranslation">
+            <inheritdoc/>
+        </member>
+        <member name="T:STranslate.Plugin.ExecutionMode">
+            <summary>
+            翻译执行模式
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.ExecutionMode.Automatic">
+            <summary>
+            自动执行（默认）
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.ExecutionMode.Manual">
+            <summary>
+            手动执行
+            </summary>
+        </member>
+        <member name="F:STranslate.Plugin.ExecutionMode.Pinned">
+            <summary>
+            钉住
+            * 不显示在列表中
+            * 手动执行
+            </summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsSuccess">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsSuccess" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Text">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Text" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Duration">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Duration" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsProcessing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsProcessing" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ResultType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ResultType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Label">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Label" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Phonetic">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Phonetic" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.AudioUrl">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "AudioUrl" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PartOfSpeech">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PartOfSpeech" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Name">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Name" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Description">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Description" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsEnabled">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsEnabled" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Role">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Role" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Content">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Content" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Options">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Options" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ExecMode">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ExecMode" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TemporaryDisplay">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TemporaryDisplay" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.AutoBackTranslation">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "AutoBackTranslation" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsSuccess">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsSuccess" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Text">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Text" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Duration">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Duration" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsProcessing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsProcessing" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ResultType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ResultType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Label">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Label" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Phonetic">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Phonetic" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.AudioUrl">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "AudioUrl" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PartOfSpeech">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PartOfSpeech" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Name">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Name" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Description">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Description" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsEnabled">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsEnabled" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Role">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Role" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Content">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Content" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Options">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Options" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ExecMode">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ExecMode" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TemporaryDisplay">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TemporaryDisplay" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.AutoBackTranslation">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "AutoBackTranslation" generated properties.</summary>
+        </member>
+    </members>
+</doc>
