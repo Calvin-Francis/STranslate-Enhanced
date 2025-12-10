@@ -1,0 +1,73 @@
+<Window
+    x:Class="STranslate.Views.ScreenOverlayWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cnvt="clr-namespace:STranslate.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+    xmlns:vm="clr-namespace:STranslate.ViewModels"
+    x:Name="STScreenOverlayWindow"
+    Title="屏幕覆盖翻译"
+    AllowsTransparency="True"
+    Background="Transparent"
+    d:DataContext="{d:DesignInstance Type=vm:ScreenOverlayWindowViewModel,
+                                     IsDesignTimeCreatable=False}"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    Topmost="True"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.InputBindings>
+        <KeyBinding Key="Esc" Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=STScreenOverlayWindow}" />
+    </Window.InputBindings>
+
+    <Grid>
+        <!-- 原始截图作为背景（90%透明，不遮挡视线） -->
+        <Image
+            x:Name="PART_BackgroundImage"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Opacity="0.1"
+            RenderOptions.BitmapScalingMode="HighQuality"
+            Source="{Binding SourceImage}"
+            Stretch="Fill" />
+
+        <!-- 可交互文本块容器 -->
+        <Canvas
+            x:Name="TextBlockCanvas"
+            Background="Transparent"
+            MouseLeftButtonDown="Canvas_MouseLeftButtonDown" />
+
+        <!-- 处理中指示器 - 透明度呼吸渐变边框 -->
+        <Border
+            x:Name="ProcessingBorder"
+            BorderBrush="#0078D4"
+            BorderThickness="3"
+            Visibility="{Binding IsProcessing, Converter={cnvt:BoolToVisibilityConverter}}">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsProcessing}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard x:Name="BreathingStoryboard">
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="0.3"
+                                            To="1.0"
+                                            Duration="0:0:0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="BreathingStoryboard" />
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+    </Grid>
+</Window>
