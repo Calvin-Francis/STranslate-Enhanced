@@ -1,0 +1,19 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_ApiKey">密钥</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_ApiKey_Placeholder">请输入您的密钥</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_ApiKey_Description">输入您的DeepL密钥</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_UseProApi">API类别</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_UseProApi_Description">选择是否使用专业版API「https://api.deepl.com」，否则使用免费版API「https://api-free.deepl.com」</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_Usage">使用情况</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_Query">查询</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_Query_Success">查询成功</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_Query_Fail">查询失败</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_Query_Cancel">取消查询</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_Query_Error1">用量为空</sys:String>
+    <sys:String x:Key="STranslate_Plugin_Translate_DeepL_Query_Error2">用量上限为空</sys:String>
+
+</ResourceDictionary>
