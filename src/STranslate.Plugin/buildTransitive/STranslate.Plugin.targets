@@ -1,3 +1,0 @@
-<Project>
-    <Import Project="../build/STranslate.Plugin.targets"/>
-</Project>
