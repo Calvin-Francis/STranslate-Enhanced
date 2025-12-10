@@ -38,15 +38,29 @@
 
 ### 其他改进
 
-- 基于 **Fluent Design 2** 重构界面
 - 支持 **.NET 10** 框架
-- 引入**插件系统**，可扩展 OCR 和翻译服务
 
 ---
 
 ## 📦 安装
 
+### 方式一：下载发行版
+
 下载最新 [Release](../../releases) 版本，解压即可使用。
+
+### 方式二：源码构建
+
+```powershell
+# 克隆仓库
+git clone https://github.com/Calvin-Francis/STranslate-Enhanced.git
+cd STranslate-Enhanced
+
+# 构建（需要 .NET 10 SDK）
+dotnet build src/STranslate.sln -c Release
+
+# 或使用构建脚本
+.\build.ps1
+```
 
 ---
 
