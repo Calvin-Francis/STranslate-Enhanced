@@ -1,0 +1,13 @@
+<Project>
+    <PropertyGroup>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <RepositoryUrl>https://github.com/ZGGSONG/STranslate/</RepositoryUrl>
+
+        <!--// 禁用 SourceLink 功能以避免编译警报 //-->
+        <EnableSourceLink>false</EnableSourceLink>
+        <!--<ArtifactsPath>$(MSBuildThisFileDirectory).artifacts</ArtifactsPath>-->
+    </PropertyGroup>
+</Project>
